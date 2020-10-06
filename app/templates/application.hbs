@@ -3,10 +3,11 @@
         <h4 class="header">
             Daily Update
         </h4>
-        {{log @model.data.firstObject}}
         <h5 class="subheader">{{moment-format @model.firstObject.date 'MMMM Do YYYY'}}</h5>
     </div>
-    <DataCard @amount={{@model.data.firstObject.newCasesByPublishDate}} />
+    {{#each model as |country|}}
+        <DataCard @country={{country.areaName}} @amount={{country.newCasesByPublishDate}} />
+        <br>
+    {{/each}}
 </div>
-
 {{outlet}}
