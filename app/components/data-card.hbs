@@ -1,7 +1,19 @@
 {{yield}}
 
 <div class="card">
-  <div class="card-body">
-    This is some text within a card body.
-  </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <span class="country">UK</span> <img src="uk.png">
+                </div>
+                <div class="col-sm">
+                    <p class="amount">{{@amount}}</p>
+                </div>
+                <div class="col-sm">
+                    {{svg-jar "down" class="arrow-red"}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

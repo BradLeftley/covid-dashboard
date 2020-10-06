@@ -1,6 +1,19 @@
 @import "ember-bootstrap/bootstrap";
 
-.header {
+.header, .subheader {
     text-align: center;
     margin: 1rem;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.arrow-red path{
+    stroke: red;
+}
+
+.amount, .country {
+    vertical-align: sub;
+    font-size: 1.5rem;
 }
