@@ -5,7 +5,7 @@
   "description": "Small description for covid-dashboard goes here",
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Bradley Leftley",
   "directories": {
     "doc": "doc",
     "test": "tests"
