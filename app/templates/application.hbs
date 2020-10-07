@@ -8,6 +8,8 @@
     {{#each model as |country|}}
         <DataCard @country={{country.areaName}} @amount={{country.newCasesByPublishDate}} />
         <br>
+    {{else}}
+    <h5>Update not recieved yet</h5>
     {{/each}}
 </div>
 {{outlet}}
