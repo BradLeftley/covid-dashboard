@@ -7,13 +7,8 @@ export default class ApplicationRoute extends Route {
         let data = await response.json();
         console.log(data)
 
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-
-        // today = mm + '/' + dd + '/' + yyyy;
-        today = yyyy +'-'+mm+'-'+dd;
-        return data.data.filter(value => value.date === today);
+        var todad = moment().format('YYYY-MM-DD');
+        console.log(todad)
+        return data.data.filter(value => value.date === todad);
       }
 }
