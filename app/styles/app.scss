@@ -16,6 +16,9 @@
     text-align: center;
 }
 
+.arrow-red {
+    transform: rotateX(180deg);
+}
 .arrow-red path{
     stroke: red;
 }

@@ -8,10 +8,14 @@
                     <span class="country">{{@country}}</span>
                 </div>
                 <div class="col-sm">
-                    <p class="amount">{{@amount}}</p>
+                    <p class="amount">{{@todaysAmount}}</p>
                 </div>
                 <div class="col-sm">
-                    {{svg-jar "down" class="arrow-red"}}
+                    {{#if casesIncreasing}}
+                        {{svg-jar "down" class="arrow-red"}}
+                    {{else}}
+                        {{svg-jar "down" class="arrow"}}
+                    {{/if}}
                 </div>
             </div>
         </div>

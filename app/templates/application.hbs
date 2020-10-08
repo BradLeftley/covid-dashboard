@@ -6,10 +6,12 @@
         <h5 class="subheader">{{moment-format @model.firstObject.date 'MMMM Do YYYY'}}</h5>
     </div>
     {{#each model as |country|}}
-        <DataCard @country={{country.areaName}} @amount={{country.newCasesByPublishDate}} />
+    {{log country.today.newCasesByPublishDate}}
+        <DataCard @country={{country.countryName}} @todaysAmount={{country.today.newCasesByPublishDate}} @yesterdaysAmount={{country.yesterday.newCasesByPublishDate}}  />
         <br>
     {{else}}
     <h5>Update not recieved yet</h5>
     {{/each}}
+    {{log model}}
 </div>
 {{outlet}}

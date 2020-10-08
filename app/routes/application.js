@@ -7,8 +7,40 @@ export default class ApplicationRoute extends Route {
         let data = await response.json();
         console.log(data)
 
-        var todad = moment().format('YYYY-MM-DD');
-        console.log(todad)
-        return data.data.filter(value => value.date === todad);
+        let today = moment().format('YYYY-MM-DD');
+        let yesterday = moment().subtract(1, 'day').format('YYYY-MM-DD');
+        console.log(today)
+        console.log("YESTERDAY", yesterday)
+
+        let countryNames = ["England", "Scotland", "Northern Ireland", "Wales"]
+
+        let todaysValues = data.data.filter(value => value.date === today);
+        let yesterdaysValues = data.data.filter(value => value.date === yesterday);
+        let theData = [];
+        countryNames.forEach(country => {
+            let x = {};
+
+            x.countryName = country;
+            todaysValues.forEach(tValue => {
+                if(tValue.areaName === country && today === tValue.date){
+                    x.today = 
+                        tValue;
+                }
+            })
+            yesterdaysValues.forEach(yValue => {
+                if(yValue.areaName === country && yesterday === yValue.date){
+                    x.yesterday = 
+                    yValue;
+                }
+            })
+
+            
+            theData.addObject(x);
+
+        })
+
+        return theData;
+        
+        ;
       }
 }
