@@ -3,44 +3,34 @@ import fetch from "fetch";
 
 export default class ApplicationRoute extends Route {
     async model() {
-        let response = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22%7D");
-        let data = await response.json();
-        console.log(data)
+        const response = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22%7D");
+        const data = await response.json();
 
-        let today = moment().format('YYYY-MM-DD');
-        let yesterday = moment().subtract(1, 'day').format('YYYY-MM-DD');
-        console.log(today)
-        console.log("YESTERDAY", yesterday)
+        const today = moment().format('YYYY-MM-DD');
+        const yesterday = moment().subtract(1, 'day').format('YYYY-MM-DD');
+        const countryNames = ["England", "Scotland", "Northern Ireland", "Wales"]
 
-        let countryNames = ["England", "Scotland", "Northern Ireland", "Wales"]
-
-        let todaysValues = data.data.filter(value => value.date === today);
-        let yesterdaysValues = data.data.filter(value => value.date === yesterday);
-        let theData = [];
+        const todaysValues = data.data.filter(value => value.date === today);
+        const yesterdaysValues = data.data.filter(value => value.date === yesterday);
+        const theData = [];
         countryNames.forEach(country => {
-            let x = {};
+            const x = {};
 
             x.countryName = country;
+
             todaysValues.forEach(tValue => {
-                if(tValue.areaName === country && today === tValue.date){
-                    x.today = 
-                        tValue;
+                if (tValue.areaName === country && today === tValue.date) {
+                    x.today = tValue;
                 }
             })
             yesterdaysValues.forEach(yValue => {
-                if(yValue.areaName === country && yesterday === yValue.date){
-                    x.yesterday = 
-                    yValue;
+                if (yValue.areaName === country && yesterday === yValue.date) {
+                    x.yesterday = yValue;
                 }
             })
-
-            
             theData.addObject(x);
-
         })
 
         return theData;
-        
-        ;
-      }
+    }
 }

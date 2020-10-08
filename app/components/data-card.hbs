@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm">
+                    {{svg-jar @country class="country-flag"}}
                     <span class="country">{{@country}}</span>
                 </div>
                 <div class="col-sm">
@@ -16,6 +17,7 @@
                     {{else}}
                         {{svg-jar "down" class="arrow"}}
                     {{/if}}
+                    {{percentageIncrease}}
                 </div>
             </div>
         </div>

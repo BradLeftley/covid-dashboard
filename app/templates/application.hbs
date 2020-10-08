@@ -6,12 +6,17 @@
         <h5 class="subheader">{{moment-format @model.firstObject.date 'MMMM Do YYYY'}}</h5>
     </div>
     {{#each model as |country|}}
-    {{log country.today.newCasesByPublishDate}}
-        <DataCard @country={{country.countryName}} @todaysAmount={{country.today.newCasesByPublishDate}} @yesterdaysAmount={{country.yesterday.newCasesByPublishDate}}  />
-        <br>
+    <DataCard @country={{country.countryName}} @todaysAmount={{country.today.newCasesByPublishDate}}
+        @yesterdaysAmount={{country.yesterday.newCasesByPublishDate}} />
+    <br>
     {{else}}
-    <h5>Update not recieved yet</h5>
+    <h5>Data for today is not available yet</h5>
     {{/each}}
-    {{log model}}
+
+       <div class="col-md-12">
+           <p>Data and API provided by: <a href="https://coronavirus.data.gov.uk/">coronavirus.data.gov.uk</a></p>
+           <p>For latest health guidlines checkout: <a href="https://www.gov.uk/coronavirus">https://www.gov.uk/coronavirus</a></p>
+           <p><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></p>
+       </div>
 </div>
 {{outlet}}
