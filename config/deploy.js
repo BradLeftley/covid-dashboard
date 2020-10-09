@@ -12,15 +12,15 @@ module.exports = function(deployTarget) {
     's3-index': {
       accessKeyId: process.env['S3_ACCESS_KEY'],
       secretAccessKey: process.env['S3_SECRET_ACCESS_KEY'],
-      bucket: process.env['DEPLOYMENT_BUCKET'],
-      region: process.env['REGION'],
+      bucket: 'covidupdate.bradleyleftley.co.uk',
+      region: 'eu-west-2',
       allowOverwrite: true
     },
     's3': {
       accessKeyId: process.env['S3_ACCESS_KEY'],
       secretAccessKey: process.env['S3_SECRET_ACCESS_KEY'],
-      bucket: process.env['DEPLOYMENT_BUCKET'],
-      region: process.env['REGION'],
+      bucket: 'covidupdate.bradleyleftley.co.uk',
+      region: 'eu-west-2',
     }
   };
 
