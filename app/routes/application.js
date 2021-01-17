@@ -9,10 +9,13 @@ export default class ApplicationRoute extends Route {
         const today = moment().format('YYYY-MM-DD');
         const yesterday = moment().subtract(1, 'day').format('YYYY-MM-DD');
         const countryNames = ["England", "Scotland", "Northern Ireland", "Wales"]
-        const vaccinatedData = {};
+        let vaccinatedData = {};
+
         try{
-        const vaccinated = await fetch("https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=United%2520Kingdom;areaType=overview&latestBy=cumPeopleReceivingFirstDose&structure=%7B%22date%22:%22date%22,%22value%22:%22cumPeopleReceivingFirstDose%22%7D");
-         vaccinatedData = await vaccinated.json();
+        let vaccinated = await fetch("https://covid-bradley.s3.eu-west-2.amazonaws.com/data.json");
+
+        vaccinatedData = await vaccinated.json();
+
         }
           catch(err){
 

@@ -6,11 +6,11 @@
          <h4 class="header">
             Weekly United Kingdom vaccination Update
         </h4>
-        {{#if @model.vaccinatedData.data.firstObject}} 
-    
-        <h5>Last updated on: {{moment-format @model.vaccinatedData.data.firstObject.date 'MMMM Do YYYY'}}</h5>
-        <h5>Total recieved first dose: {{format-number @model.vaccinatedData.data.firstObject.value}}</h5>
-        <h5>≈{{percentage-calculator @model.vaccinatedData.data.firstObject.value}}% of population received first dose </h5>
+
+        {{#if @model.vaccinatedData.firstObject}} 
+        <h5>Last updated on: {{moment-format @model.vaccinatedData.firstObject.date 'MMMM Do YYYY'}}</h5>
+        <h5>Total recieved first dose: {{format-number @model.vaccinatedData.firstObject.value}}</h5>
+        <h5>≈{{percentage-calculator @model.vaccinatedData.firstObject.value}}% of population received first dose </h5>
         {{else}}
         <h5>The total data for today is not available yet</h5>
         {{/if}}
