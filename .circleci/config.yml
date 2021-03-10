@@ -6,7 +6,7 @@ jobs:
       - image: danlynn/ember-cli:3.4.3-node_10.11
         environment:
           JOBS: 2
-    working_directory: ~/cv-website
+    working_directory: ~/covid-dashboard
     steps:
       - checkout
       - run:
