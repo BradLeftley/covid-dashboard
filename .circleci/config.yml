@@ -1,0 +1,21 @@
+
+# .circleci/config.yml
+version: 2
+jobs:
+  build:
+    docker:
+      - image: danlynn/ember-cli:3.4.3-node_10.11
+        environment:
+          JOBS: 2
+    working_directory: ~/covid-dashboard
+    steps:
+      - checkout
+      - run:
+          name: npm install
+          command: npm install --non-interactive
+      - deploy:
+          name: Deploy 
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ember deploy production --verbose --activate=true
+            fi
