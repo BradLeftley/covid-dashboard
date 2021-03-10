@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: danlynn/ember-cli:3.4.3-node_10.11
+      - image: danlynn/ember-cli:3.18.0-node_12.16
         environment:
           JOBS: 2
     working_directory: ~/cv-website
