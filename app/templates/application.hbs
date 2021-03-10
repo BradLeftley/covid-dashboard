@@ -1,5 +1,12 @@
 <div class="container">
- 
+ <div class="row">
+     <div class="col-md-6">
+         <h2>Covid-19 update</h2>
+     </div>
+          <div class="col-md-6">
+         <h4 class="country-text">{{svg-jar "Northern Ireland" class="country-flag"}}United Kingdom</h4>
+     </div>
+ </div>
 
    <div class="col-md-12">
        <hr>
@@ -23,6 +30,9 @@
         </h4>
         <h5 class="subheader">{{moment-format @model.firstObject.date 'MMMM Do YYYY'}}</h5>
     </div>
+    <div class="container card-container">
+        <h4>Cases</h4>
+<h5>Last updated {{moment-format @model.firstObject.date 'MMMM Do YYYY'}}</h5>
     {{#if model.theData.firstObject.today}}
     {{#each model.theData as |country|}}
     <DataCard @country={{country.countryName}} @todaysAmount={{country.today.newCasesByPublishDate}}
@@ -33,7 +43,7 @@
        <h5>Data for today is not available yet</h5>
 
     {{/if}}
-
+    </div>
  
 
        <div class="col-md-12">

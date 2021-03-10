@@ -1,11 +1,43 @@
 @import "ember-bootstrap/bootstrap";
+@import url('http://fonts.cdnfonts.com/css/hind-mysuru');
+
+h2 {
+    font-family: Hind Mysuru;
+font-size: 52px;
+font-style: normal;
+font-weight: 700;
+line-height: 123px;
+letter-spacing: 0em;
+text-align: center;
+color: black
+
+}
+.card-container {
+    border-radius: 22px;
+}
+.country-text {
+
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: 42px;
+letter-spacing: 0em;
+text-align: right;
+color: black;
+margin-top: 2.2rem;
+
+}
+body {
+    // background: #4D5BDC ;
+}
 
 .header, .subheader, h5 {
-    text-align: center;
-    margin: 1rem;
+    text-align: left;
+
 }
 
 .card {
+    background: #F5F5F5;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
