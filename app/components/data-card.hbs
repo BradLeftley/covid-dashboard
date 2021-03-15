@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-sm">
                     {{svg-jar @country class="country-flag"}}
-                    <span class="country">{{@country}}</span>
                 </div>
                 <div class="col-sm">
                     <p class="amount">{{format-number @todaysAmount}}</p>
+                    <span class="country">{{@country}}</span>
                 </div>
                 <div class="col-sm">
                     {{#if casesIncreasing}}
